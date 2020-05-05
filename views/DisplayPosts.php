@@ -72,9 +72,9 @@
                 </div>
                 <ul class="comments-list">
                   <?php
-                  $postId = $onePost['id'];
-                  if (isset($comments[$postId])) {
-                    foreach ($comments[$postId] as $comment) {
+                  $idPost = $onePost['id'];
+                  if (isset($comments[$idPost])) {
+                    foreach ($comments[$idPost] as $comment) {
                   ?>
                       <li class="comment">
                         <a class="pull-left" href="#">
