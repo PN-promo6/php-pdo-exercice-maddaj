@@ -17,6 +17,11 @@ switch ($action) {
     include "../models/PostManager.php";
     $posts = GetAllPosts();
 
+    if (isset($_GET["forms"])) {
+      $forms = $_GET["forms"];
+      $posts = GetAllPostLike($forms);
+    }
+
     include_once "../models/CommentManager.php";
     $comments = array();
 

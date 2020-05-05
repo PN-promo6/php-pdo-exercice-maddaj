@@ -26,9 +26,13 @@
       <ul class="navbar-nav mr-auto">
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#" role="button">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo $_GET['DisplayLogin'] ?>" role="button">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="#" role="button">Sign Up</a></li>
       </ul>
+      <form method="GET" class="form-inline my-2 my-lg-0">
+        <input name="forms" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </header>
 
