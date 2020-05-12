@@ -11,7 +11,7 @@ $PDO = new PDO($db_dataSourceName, $db_user, $db_passwd);
 $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //si $nom est défini dans la requete sinon par défaut affiche les données de Patrick
-$nom = isset($_GET['nom']) ? $_GET['nom'] : 'Patrick';
+//$nom = isset($_GET['nom']) ? $_GET['nom'] : 'Patrick';
 
 //REQUETE PRÉPARER SELECT (plus sécurisé) -> évite l'injection SQL
 // $requetePreparer = $PDO->prepare("
@@ -37,4 +37,23 @@ $nom = isset($_GET['nom']) ? $_GET['nom'] : 'Patrick';
 //$PDO->exec("INSERT INTO jeux_video( nom, possesseur, console, prix, nbre_joueurs_max, commentaires) VALUES( 'Battlefield 1942', 'Patrick', 'PC', 45, 50, '2nde guerre mondiale')");
 
 //REQUETE UPDATE
-$PDO->exec("UPDATE jeux_video set console = 'xbox' WHERE ID = 52");
+// $console = $_GET['console'] ?? 'SuperNes';
+// $possesseur = $_GET['possesseur'] ?? 'Florent';
+
+// $prepareRequest = $PDO->prepare("UPDATE jeux_video set console = :plateform WHERE possesseur = :owner");
+// $prepareRequest->execute(
+//     array(
+//         "plateform" => $console,
+//         "owner" => $possesseur
+//     )
+// );
+
+//REQUETE DELETE
+$possesseur = $_GET['possesseur'] ?? 'Florent';
+
+$prepareRequest = $PDO->prepare("DELETE FROM jeux_video WHERE possesseur = :owner");
+$prepareRequest->execute(
+    array(
+        "owner" => $possesseur
+    )
+);
